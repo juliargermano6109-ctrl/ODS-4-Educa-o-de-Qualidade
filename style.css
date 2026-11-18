@@ -1,0 +1,18 @@
+#caneta{
+    background-color:rgb(235, 217, 221); 
+    width: 90% ;
+}
+h1{
+    color:brown;
+}
+h2{
+    color: darkred;
+}
+#ods{
+ width: 300px;
+ height: 300px;
+ display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
