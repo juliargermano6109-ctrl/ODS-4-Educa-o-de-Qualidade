@@ -1,0 +1,263 @@
+/* ==========================================================
+   Meu Primeiro Site - ODS 4 (Educação de Qualidade)
+   Cor principal: vermelho oficial do ODS 4 (#C5192D)
+   ========================================================== */
+
+:root {
+    --vermelho: #C5192D;
+    --vermelho-escuro: #9E1424;
+    --tinta: #262626;
+    --cinza: #5B5B5B;
+    --fundo: #FBFAFA;
+    --linha: #E4DEDD;
+    --largura: 46rem;
+    --lateral: max(1.25rem, calc((100% - var(--largura)) / 2));
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ---------- Títulos (fonte sem serifa para contrastar com o texto) ---------- */
+
+h1, h2, h3, h4, nav {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--vermelho);
+    font-size: 1.75rem;
+    line-height: 1.25;
+    color: var(--vermelho);
+}
+
+h3 {
+    margin: 1.75rem 0 0.4rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+h4 {
+    margin: 1.25rem 0 0.2rem;
+    font-size: 1rem;
+    color: var(--vermelho-escuro);
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.25rem;
+    align-items: center;
+    padding: 2rem var(--lateral) 1.5rem;
+    background: var(--vermelho);
+    color: #fff;
+}
+
+#ods {
+    grid-row: 1 / span 2;
+    width: 5.5rem;
+    height: auto;
+    border: 3px solid #fff;
+    border-radius: 6px;
+}
+
+header h1 {
+    grid-column: 2;
+    margin: 0;
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    line-height: 1.15;
+}
+
+header p {
+    grid-column: 2;
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ---------- Menu ---------- */
+
+nav {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #fff;
+    color: var(--vermelho);
+}
+
+nav a:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ---------- Conteúdo ---------- */
+
+main {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 1rem 1.25rem 2rem;
+}
+
+main section {
+    padding-top: 2.5rem;
+}
+
+/* ---------- Metas: código à esquerda, descrição à direita ---------- */
+
+#metas {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    column-gap: 1rem;
+}
+
+#metas h2 {
+    grid-column: 1 / -1;
+}
+
+#metas h3,
+#metas p {
+    margin: 0;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+#metas h3 {
+    color: var(--vermelho);
+    font-size: 1.35rem;
+}
+
+/* ---------- Educação no Brasil: Avanços e Desafios como blocos ---------- */
+
+#educacao h3 {
+    margin-top: 2rem;
+    padding-left: 0.75rem;
+    border-left: 5px solid var(--vermelho);
+}
+
+/* ---------- Links ---------- */
+
+main a {
+    color: var(--vermelho-escuro);
+}
+
+main a:focus-visible {
+    outline: 3px solid var(--vermelho);
+    outline-offset: 2px;
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+    margin-top: 2rem;
+    padding: 2rem var(--lateral);
+    background: #2B2B2B;
+    color: #E8E8E8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+footer h2 {
+    margin: 1.25rem 0 0.5rem;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+footer p {
+    margin: 0 0 0.75rem;
+}
+
+footer a {
+    color: #fff;
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 34rem) {
+    body {
+        font-size: 1rem;
+    }
+
+    #ods {
+        width: 4rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #metas {
+        grid-template-columns: 3.5rem 1fr;
+        column-gap: 0.75rem;
+    }
+}
