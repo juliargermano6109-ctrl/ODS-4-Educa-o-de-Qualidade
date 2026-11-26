@@ -10,7 +10,7 @@
     --cinza: #5B5B5B;
     --fundo: #FBFAFA;
     --linha: #E4DEDD;
-    --largura: 46rem;
+    --largura: 62rem;
     --lateral: max(1.25rem, calc((100% - var(--largura)) / 2));
 }
 
@@ -19,7 +19,7 @@
 }
 
 html {
-    scroll-padding-top: 1rem;
+    scroll-padding-top: 5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,6 +39,10 @@ body {
 
 img {
     max-width: 100%;
+}
+
+footer h2:first-child {
+    margin-top: 0;
 }
 
 /* ---------- Títulos (fonte sem serifa para contrastar com o texto) ---------- */
@@ -115,11 +119,15 @@ header p {
     line-height: 1.5;
 }
 
-/* ---------- Menu ---------- */
+/* ---------- Menu fixo ---------- */
 
 nav {
-    grid-column: 1 / -1;
-    margin-top: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 0.6rem var(--lateral);
+    background: var(--vermelho-escuro);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 nav ul {
@@ -193,10 +201,106 @@ main section {
 
 /* ---------- Educação no Brasil: Avanços e Desafios como blocos ---------- */
 
-#educacao h3 {
-    margin-top: 2rem;
-    padding-left: 0.75rem;
-    border-left: 5px solid var(--vermelho);
+.blocos{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.bloco{
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid var(--linha);
+    border-top: 5px solid var(--vermelho);
+    border-radius: 6px;
+}
+
+.bloco p{
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.bloco h3 {
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--vermelho);
+    color: var(--cor);
+    font-size: 1.4rem;
+}
+
+.bloco h4 {
+    margin: 0 0 0.3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--linha);
+    color: var(--vermelho-escuro);
+}
+
+.bloco h3 + h4 {
+    padding-top: 0;
+    border-top: 0;
+}
+
+/* ---------- Leitura no Brasil: separação entre os tópicos ---------- */
+
+#leitura h3 {
+    position: relative;
+    margin: 2.25rem 0 0.6rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--linha);
+}
+
+#leitura h3::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: var(--vermelho);
+}
+
+#leitura h2 + h3 {
+    margin-top: 1.25rem;
+    padding-top: 0;
+    border-top: 0;
+}
+
+#leitura h2 + h3::before {
+    display: none;
+}
+
+/* ---------- Como contribuir: imagem e texto lado a lado ---------- */
+
+.acao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+.acao img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+}
+
+.acao h3 {
+    margin: 0 0 0.75rem;
+    color: var(--vermelho);
+    font-size: 1.4rem;
+}
+
+.acao p:last-child {
+    margin-bottom: 0;
+}
+
+.acao:nth-of-type(even) img {
+    order: 2;
 }
 
 /* ---------- Links ---------- */
@@ -215,7 +319,7 @@ main a:focus-visible {
 footer {
     margin-top: 2rem;
     padding: 2rem var(--lateral);
-    background: #2B2B2B;
+    background: var(--vermelho-escuro);
     color: #E8E8E8;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -235,6 +339,31 @@ footer p {
 
 footer a {
     color: #fff;
+}
+
+footer a.botao-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem;
+    padding: 0.5rem 1.1rem;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 999px;
+    color: var(--vermelho-escuro);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+footer a.botao-github:hover {
+    background: transparent;
+    color: #fff;
+}
+
+footer a.botao-github:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
 }
 
 /* ---------- Celular ---------- */
@@ -259,5 +388,81 @@ footer a {
     #metas {
         grid-template-columns: 3.5rem 1fr;
         column-gap: 0.75rem;
+    }
+
+    .blocos {
+        grid-template-columns: 1fr;
+    }
+
+      #ajudar {
+        grid-template-columns: 1fr;
+    }
+
+    #ajudar h3 {
+        padding-bottom: 0.25rem;
+    }
+
+    #ajudar ul {
+        padding-top: 0.5rem;
+        border-top: 0;
+    }
+
+        nav ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    html {
+    scroll-padding-top: 7rem;
+}
+}
+
+/* ---------- Computador ---------- */
+
+@media (min-width: 62rem) {
+    body {
+        font-size: 1.1875rem;
+    }
+
+    #ods {
+        width: 7.5rem;
+    }
+
+    header {
+        padding-top: 2.5rem;
+        padding-bottom: 2rem;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+    }
+
+    header p {
+        font-size: 1.15rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 1.05rem;
+    }
+
+    h2 {
+        font-size: 2.1rem;
+    }
+
+    #metas {
+        grid-template-columns: 5.5rem 1fr;
+    }
+
+    .bloco {
+        padding: 1.75rem;
+    }
+
+    .bloco p {
+        font-size: 1.05rem;
     }
 }
