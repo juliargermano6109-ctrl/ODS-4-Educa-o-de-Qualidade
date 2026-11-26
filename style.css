@@ -275,11 +275,15 @@ main section {
 
 .acao {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 17rem 1fr;
     gap: 2rem;
     align-items: center;
     padding: 2rem 0;
     border-bottom: 1px solid var(--linha);
+}
+
+.acao:nth-of-type(even) {
+    grid-template-columns: 1fr 17rem;
 }
 
 .acao img {
@@ -301,6 +305,12 @@ main section {
 
 .acao:nth-of-type(even) img {
     order: 2;
+}
+
+.acao h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 /* ---------- Links ---------- */
@@ -342,9 +352,7 @@ footer a {
 }
 
 footer a.botao-github {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: inline-block;
     margin: 0.5rem 0 1rem;
     padding: 0.5rem 1.1rem;
     background: #fff;
@@ -394,19 +402,15 @@ footer a.botao-github:focus-visible {
         grid-template-columns: 1fr;
     }
 
-      #ajudar {
+        .acao,
+    .acao:nth-of-type(even) {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    #ajudar h3 {
-        padding-bottom: 0.25rem;
+    .acao img {
+        aspect-ratio: 16 / 9;
     }
-
-    #ajudar ul {
-        padding-top: 0.5rem;
-        border-top: 0;
-    }
-
         nav ul {
         flex-wrap: nowrap;
         overflow-x: auto;
