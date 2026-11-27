@@ -415,7 +415,7 @@ footer a.botao-github:focus-visible {
     border: 1px solid var(--linha);
     border-radius: 8px;
     order: 2;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
 }
         nav ul {
         flex-wrap: nowrap;
