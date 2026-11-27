@@ -408,9 +408,15 @@ footer a.botao-github:focus-visible {
         gap: 1rem;
     }
 
-    .acao img {
-        aspect-ratio: 16 / 9;
-    }
+   .acao img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+    order: 2;
+    aspect-ratio: 16 / 9;
+}
         nav ul {
         flex-wrap: nowrap;
         overflow-x: auto;
